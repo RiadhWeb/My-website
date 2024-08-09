@@ -28,6 +28,9 @@
         h1 {
             margin-bottom: 20px;
         }
+        p {
+            margin-bottom: 20px;
+        }
         .button {
             display: inline-block;
             padding: 12px 25px;
@@ -61,20 +64,25 @@
         .hidden {
             display: none;
         }
+        #game-container {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="login-container">
         <h1>Welcome to My Awesome Page</h1>
         <p>Please sign up to continue</p>
         
-        <form id="signup-form" class="hidden">
+        <!-- Sign Up Form -->
+        <form id="signup-form">
             <input type="email" id="email" placeholder="Enter your email" required>
             <button type="submit" class="button">Sign Up with Email</button>
         </form>
         
         <button id="facebook-button" class="button button-secondary">Sign Up with Facebook</button>
         
+        <!-- Game Container -->
         <div id="game-container" class="hidden">
             <h2>Play the Snake Game</h2>
             <iframe src="https://snake-game.github.io/" width="100%" height="400" frameborder="0"></iframe>
@@ -84,14 +92,14 @@
     <script>
         document.getElementById('facebook-button').addEventListener('click', function() {
             alert('Redirecting to Facebook for sign-up...');
-            // Redirect to Facebook login page or handle OAuth flow
+            // In a real application, this should redirect to a Facebook OAuth login
         });
 
         document.getElementById('signup-form').addEventListener('submit', function(event) {
             event.preventDefault();
             alert('Email sign-up successful!');
             // Handle email sign-up logic here
-            document.getElementById('signup-form').classList.add('hidden');
+            document.getElementById('login-container').classList.add('hidden');
             document.getElementById('game-container').classList.remove('hidden');
         });
     </script>
